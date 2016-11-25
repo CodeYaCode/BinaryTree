@@ -1,7 +1,7 @@
 /**
 * BinaryTreeNode.java
 */
-package com.binarytree.chen;
+package com.chen.binarytree;
 
 /**
  * The node of binary tree.
@@ -43,5 +43,11 @@ public class BinaryTreeNode<T> {
     }
     public void setRightNode(BinaryTreeNode<T> rightNode) {
         this.rightNode = rightNode;
+    }
+
+    @Override
+    public String toString() {
+        return "BinaryTreeNode [value=" + value + ", leftNode=" + leftNode
+                + ", rightNode=" + rightNode + "]";
     }
 }

@@ -1,7 +1,7 @@
 /**
 * BinaryTree.java
 */
-package com.binarytree.chen;
+package com.chen.binarytree;
 
 /**
  * Binary tree
@@ -11,7 +11,7 @@ package com.binarytree.chen;
  */
 
 public class BinaryTree<T> {
-    private BinaryTreeNode<T> root;
+    protected BinaryTreeNode<T> root;
     
     public BinaryTree() {
         this.root = null;
@@ -53,6 +53,21 @@ public class BinaryTree<T> {
             return 0;
         }
         return getNodeCount(node.getLeftNode()) + getNodeCount(node.getRightNode()) + 1;
+    }
+    
+    /**
+     * Get tree's depth.
+     * @param node
+     * @return
+     */
+    public int getDepth(BinaryTreeNode<T> node) {
+        if(node == null) {
+            return 0;
+        }
+        int depthLeft = getDepth(node.getLeftNode());
+        int depthRight = getDepth(node.getRightNode());
+        
+        return depthLeft > depthRight ? (depthLeft + 1) : (depthRight + 1);
     }
     
     public void visit(BinaryTreeNode<T> node) {

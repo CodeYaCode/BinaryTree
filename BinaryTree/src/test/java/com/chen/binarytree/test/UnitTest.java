@@ -1,11 +1,11 @@
 /**
 * UnitTest.java
 */
-package com.binarytree.test.chen;
+package com.chen.binarytree.test;
 
 import org.junit.Test;
 
-import com.binarytree.chen.BinaryTree;
+import com.chen.binarytree.BinaryTree;
 
 /**
  *
@@ -15,11 +15,13 @@ import com.binarytree.chen.BinaryTree;
  */
 
 public class UnitTest {
-
+    public static BinaryTree<String> iTree = new BinaryTree<String>();
+    static {
+        iTree.insert("a").insert("b").insert("c").insert("d").insert("e").insert("f").insert("g").insert("h").insert("i");
+    }
+    
     @Test
     public void testTraverse() {
-        BinaryTree<String> iTree = new BinaryTree<String>();
-        iTree.insert("a").insert("b").insert("c").insert("d").insert("e").insert("f").insert("g").insert("h").insert("i");
         iTree.preOrderTraverse(iTree.getRoot());System.out.println();
         iTree.inOrderTraverse(iTree.getRoot());System.out.println();
         iTree.postOrderTraverse(iTree.getRoot());System.out.println();
@@ -27,8 +29,11 @@ public class UnitTest {
     
     @Test
     public void testGetNodeCount() {
-        BinaryTree<String> iTree = new BinaryTree<String>();
-        iTree.insert("a").insert("b").insert("c").insert("d").insert("e").insert("f").insert("g").insert("h").insert("i");
         System.out.println(iTree.getNodeCount(iTree.getRoot()));
+    }
+    
+    @Test
+    public void testGetDepth() {
+        System.out.println(iTree.getDepth(iTree.getRoot()));
     }
 }
